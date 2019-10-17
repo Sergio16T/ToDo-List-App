@@ -1,22 +1,53 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+html{
+  height: 100%; 
+  margin: 0; 
+}
+body {
+  font-family: 'Open Sans', sans-serif; 
+  height: 100%; 
+  margin: 0; 
+}
+h3 {
+  margin-top: 0;
+  padding: 20px; 
+  font-size: 2rem; 
+  font-weight: 400; 
+  width: 100%; 
   text-align: center;
+  background-color: #c04a40; 
+  color: rgb(255, 255, 255, .8); 
 }
-
-.App-logo {
-  height: 40vmin;
+.listContainer {
+display: flex; 
+flex-direction: column; 
+align-items: center;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.listItems {
+  width: 50%; 
+  padding: 15px; 
+  border-bottom: 1px solid #292828; 
+  list-style: none; 
 }
-
-.App-link {
-  color: #09d3ac;
+#inputLabel {
+  font-size: 1.2rem; 
+}
+.itemContainer {
+  display: flex; 
+  justify-content: space-between; 
+}
+.itemContainer, .listItems, .toggleButton {
+  margin: 20px; 
+}
+@media screen and (max-width: 550px) {
+  form {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+  }
+  form > input, label, button {
+   margin: 5px 0px; 
+  }
+  
 }
