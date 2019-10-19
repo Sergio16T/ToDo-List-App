@@ -3,6 +3,7 @@
 html{
   height: 100%; 
   margin: 0; 
+  box-sizing: border-box; 
 }
 body {
   font-family: 'Open Sans', sans-serif; 
@@ -10,14 +11,17 @@ body {
   margin: 0; 
 }
 h3 {
-  margin-top: 0;
-  padding: 20px; 
+  margin: 0;
+  padding: 20px 0px; 
   font-size: 2rem; 
   font-weight: 400; 
   width: 100%; 
   text-align: center;
   background-color: #c04a40; 
   color: rgb(255, 255, 255, .8); 
+}
+form {
+  margin-top: 5vh; 
 }
 .listContainer {
 display: flex; 
@@ -32,14 +36,23 @@ align-items: center;
 }
 #inputLabel {
   font-size: 1.2rem; 
+  margin: 2vh; 
 }
 .itemContainer {
   display: flex; 
   justify-content: space-between; 
 }
 .itemContainer, .listItems, .toggleButton {
-  margin: 20px; 
+  margin: 2vh 1vh; 
 }
+.wrapper {
+  height: 100vh; 
+  display: flex; 
+}
+#hamburger {
+  display: none; 
+}
+
 @media screen and (max-width: 550px) {
   form {
     display: flex; 
@@ -50,4 +63,26 @@ align-items: center;
    margin: 5px 0px; 
   }
   
+}
+
+@media screen and (max-width: 720px) {
+  #hamburger {
+    cursor: pointer;
+    display: block;
+    font-size: 2rem;
+    padding: 20px;
+    color: rgb(255, 255, 255, .8);
+  }
+  .app-header {
+    display: flex;
+    background-color: #c04a40;
+    flex-direction: row;
+    align-items: center;
+  }
+  .listContainer {
+    width: 100%; 
+  }
+  .listContainer > form {
+    text-align: center; 
+  }
 }
