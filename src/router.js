@@ -9,10 +9,10 @@ import './App.css';
 class Router extends React.Component {
     render(){
         return (
-            <BrowserRouter>
-                <Route exact path = "/" component ={HomePage}></Route>
+            <BrowserRouter basename ={process.env.PUBLIC_URL}>
+                <Route exact path = "/" component ={HomePage}></Route> 
                 <Route path = "/devToDo" component ={DevToDo}></Route>
-                <Route path = "/personal" component= {Personal}></Route>
+                <Route path = "/personal" component= {Personal}></Route>      
             </BrowserRouter>
 
             
