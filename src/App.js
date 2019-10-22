@@ -17,10 +17,14 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.openMenu = this.openMenu.bind(this); 
+    this.clickHamburger = this.clickHamburger.bind(this);
+   
+
   }
 _isMounted  = false;
 componentDidMount() {
   this._isMounted  = true; 
+  this.clickHamburger();
   window.addEventListener('resize', this.updateDimensions.bind(this));
   window.addEventListener('DOMContentLoaded', this.updateDimensions.bind(this)); 
 }
@@ -31,6 +35,7 @@ componentWillUnmount() {
   window.removeEventListener('resize', this.updateDimensions.bind(this));
   window.removeEventListener('DOMContentLoaded', this.updateDimensions.bind(this)); 
 }
+
 
   render() {
     const styles = {
@@ -47,11 +52,11 @@ componentWillUnmount() {
     return (
       <div>
         <div className="app-header">
-        <i onClick = {this.openMenu} id ="hamburger" className="fas fa-bars"></i>
+        <i ref ="hamburger" onClick = {this.openMenu} id ="hamburger" className="fas fa-bars"></i>
         <h3>To Do List</h3>
         </div>
         <div className ="wrapper">
-        <NavSideBar responsive ={this.state.responsive} />
+        <NavSideBar responsive ={this.state.responsive} clickHam ={this.clickHamburger} />
         <div className='listContainer'>
         <form onSubmit={this.handleSubmit}>
           <label id= "inputLabel" htmlFor="new-todo">
@@ -118,17 +123,17 @@ componentWillUnmount() {
   }
 
   openMenu() {
-  
-   if(this.state.responsive) {
-     this.setState({
-       responsive: false
-     });
-   } else {
-     this.setState({
-       responsive: true
-     });
-   }
-   if(this.state.width >= 720){
+   
+    if(this.state.responsive) {
+      this.setState({
+        responsive: false
+      });
+    } else {
+      this.setState({
+        responsive: true
+      });
+    }
+    if(this.state.width >= 720) {
     this.setState({
       responsive: true
     });
@@ -136,6 +141,11 @@ componentWillUnmount() {
 
   }
 
+  clickHamburger(){
+    this.refs.hamburger.click(); 
+  }
+
+ 
 
 }
 

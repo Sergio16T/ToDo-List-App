@@ -16,6 +16,7 @@ class NavSideBar extends React.Component {
             text: '',
             priorityText: '',
             responsive: this.props.responsive
+         
         }
         this.rotateArrow = this.rotateArrow.bind(this); 
         this.openModal = this.openModal.bind(this); 
@@ -24,23 +25,27 @@ class NavSideBar extends React.Component {
         this.handleProjectInput = this.handleProjectInput.bind(this);
         this.handlePriorityInput = this.handlePriorityInput.bind(this); 
         this.setResponsive = this.setResponsive.bind(this); 
+
+
     }
      _isMounted  = false; 
     componentDidMount(){
         this._isMounted= true; 
-        window.addEventListener('click', this.setResponsive.bind(this))
-        window.addEventListener('resize', this.setResponsive.bind(this))
+        window.addEventListener('click', this.setResponsive.bind(this));
+        window.addEventListener('resize', this.setResponsive.bind(this));
         window.addEventListener('load', this.setResponsive.bind(this));
+        
 
     }
     componentWillUnmount(){
         this._isMounted = false; 
-        window.removeEventListener('click', this.setResponsive.bind(this))
-        window.removeEventListener('resize', this.setResponsive.bind(this))
+        window.removeEventListener('click', this.setResponsive.bind(this));
+        window.removeEventListener('resize', this.setResponsive.bind(this));
         window.removeEventListener('load', this.setResponsive.bind(this));
          
-    }
-
+         
+    } 
+    
     setResponsive(){
         if(this._isMounted) {
         this.setState({
@@ -48,6 +53,7 @@ class NavSideBar extends React.Component {
         }); 
     }
     }
+    
 
     rotateArrow() {
         if (this.state.rightArrowClassName === 'right-arrow'){
@@ -80,7 +86,8 @@ class NavSideBar extends React.Component {
         const newProject = {
             projectTitle: this.state.text,
             id: Math.random(),
-            priority: this.state.priorityText
+            priority: this.state.priorityText,
+            path : '/project'
         }
         this.setState({
             projects: this.state.projects.concat(newProject), 
@@ -100,6 +107,7 @@ class NavSideBar extends React.Component {
             priorityText: e.target.value
         }); 
     }
+ 
     render() {
         return (
             <div className ="navSideBar-wrapper">
@@ -122,7 +130,7 @@ class NavSideBar extends React.Component {
                     </header>
                     <ul className= {this.state.projectListClassName}>
                         {this.state.projects.map(project => (
-                            <Link to ={project.path} key={project.id} ><li className="project-item">{project.projectTitle}</li></Link>
+                            <Link to ={project.path} key={project.id} onClick={this.props.clickHam}><li className="project-item">{project.projectTitle}</li></Link>
                         ))}
                         
                     </ul>
@@ -139,5 +147,7 @@ class NavSideBar extends React.Component {
 
 export default NavSideBar; 
 
-//switch sideNavBar to dropdown Hamburger Icon menu at 700px width. 
+
 //expansionPanel needs it's own component & module reduce lines of codein this module
+/* instead of ternary operator in JS for display block or none consider className for that 
+DIV and changing reponsive to className this way it works even when devconsole closes*/
