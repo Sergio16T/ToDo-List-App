@@ -14,8 +14,7 @@ class NavSideBar extends React.Component {
             projectListClassName: 'project-list',
             modalBoxClassName: 'modalBox inactive',
             text: '',
-            priorityText: '',
-            responsive: this.props.responsive
+            priorityText: ''
          
         }
         this.rotateArrow = this.rotateArrow.bind(this); 
@@ -24,37 +23,10 @@ class NavSideBar extends React.Component {
         this.addProject = this.addProject.bind(this);
         this.handleProjectInput = this.handleProjectInput.bind(this);
         this.handlePriorityInput = this.handlePriorityInput.bind(this); 
-        this.setResponsive = this.setResponsive.bind(this); 
-
-
-    }
-     _isMounted  = false; 
-    componentDidMount(){
-        this._isMounted= true; 
-        window.addEventListener('click', this.setResponsive.bind(this));
-        window.addEventListener('resize', this.setResponsive.bind(this));
-        window.addEventListener('load', this.setResponsive.bind(this));
         
 
     }
-    componentWillUnmount(){
-        this._isMounted = false; 
-        window.removeEventListener('click', this.setResponsive.bind(this));
-        window.removeEventListener('resize', this.setResponsive.bind(this));
-        window.removeEventListener('load', this.setResponsive.bind(this));
-         
-         
-    } 
-    
-    setResponsive(){
-        if(this._isMounted) {
-        this.setState({
-            responsive: this.props.responsive
-        }); 
-    }
-    }
-    
-
+ 
     rotateArrow() {
         if (this.state.rightArrowClassName === 'right-arrow'){
             this.setState({
@@ -120,7 +92,7 @@ class NavSideBar extends React.Component {
                 text = {this.state.text}
                 priorityText = {this.state.priorityText}
             />
-            <div style ={{display: this.state.responsive ? 'block' : 'none'}} className ='navSideBar-Container'>
+            <div style ={{display: this.props.responsive ? 'block' : 'none'}} className ='navSideBar-Container'>
                 <div className='panel-wrapper'>
                 <div className ="expansionPanel">
                     <header id="navSideBar-header">
@@ -149,5 +121,3 @@ export default NavSideBar;
 
 
 //expansionPanel needs it's own component & module reduce lines of codein this module
-/* instead of ternary operator in JS for display block or none consider className for that 
-DIV and changing reponsive to className this way it works even when devconsole closes*/

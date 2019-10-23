@@ -105,21 +105,22 @@ componentWillUnmount() {
 
   updateDimensions =() => {
     if(this._isMounted){
-    this.setState({
-      width: window.innerWidth
-    });
-    if (this.state.width < 720){
       this.setState({
-        responsive: true  
+        width: window.innerWidth
       });
+      if (this.state.width < 720){
+        this.setState({
+          responsive: false  
+        });
+      }
+      if (this.state.width >= 720){
+        this.setState({
+          responsive: true
+        });
+        console.log('720+')
+      }
+      // note took this.openMenu() out changed false and true to opposites 
     }
-    if (this.state.width >= 720){
-      this.setState({
-        responsive: false 
-      });
-    }
-    this.openMenu(); 
-  }
   }
 
   openMenu() {
