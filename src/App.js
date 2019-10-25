@@ -26,14 +26,14 @@ componentDidMount() {
   this._isMounted  = true; 
   this.clickHamburger();
   window.addEventListener('resize', this.updateDimensions.bind(this));
-  window.addEventListener('DOMContentLoaded', this.updateDimensions.bind(this)); 
+  document.addEventListener('DOMContentLoaded', this.updateDimensions.bind(this)); // this listener should be on the Document Object? 
 }
 
 
 componentWillUnmount() {
   this._isMounted = false; 
   window.removeEventListener('resize', this.updateDimensions.bind(this));
-  window.removeEventListener('DOMContentLoaded', this.updateDimensions.bind(this)); 
+  document.removeEventListener('DOMContentLoaded', this.updateDimensions.bind(this)); 
 }
 
 
@@ -117,7 +117,6 @@ componentWillUnmount() {
         this.setState({
           responsive: true
         });
-        console.log('720+')
       }
       // note took this.openMenu() out changed false and true to opposites 
     }
