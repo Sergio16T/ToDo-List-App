@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ToDo-List-App/static/css/main.bc0f58ee.chunk.css",
+    "main.css": "/ToDo-List-App/static/css/main.6ade4735.chunk.css",
     "main.js": "/ToDo-List-App/static/js/main.67dba70f.chunk.js",
     "main.js.map": "/ToDo-List-App/static/js/main.67dba70f.chunk.js.map",
     "runtime-main.js": "/ToDo-List-App/static/js/runtime-main.fb8e1af4.js",
@@ -8,14 +8,14 @@
     "static/js/2.51f0b788.chunk.js": "/ToDo-List-App/static/js/2.51f0b788.chunk.js",
     "static/js/2.51f0b788.chunk.js.map": "/ToDo-List-App/static/js/2.51f0b788.chunk.js.map",
     "index.html": "/ToDo-List-App/index.html",
-    "precache-manifest.9a1d1a6b926fce7edfb526a3dda7665d.js": "/ToDo-List-App/precache-manifest.9a1d1a6b926fce7edfb526a3dda7665d.js",
+    "precache-manifest.82d1b4738980f55335e81f0233cd8fc2.js": "/ToDo-List-App/precache-manifest.82d1b4738980f55335e81f0233cd8fc2.js",
     "service-worker.js": "/ToDo-List-App/service-worker.js",
-    "static/css/main.bc0f58ee.chunk.css.map": "/ToDo-List-App/static/css/main.bc0f58ee.chunk.css.map"
+    "static/css/main.6ade4735.chunk.css.map": "/ToDo-List-App/static/css/main.6ade4735.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.fb8e1af4.js",
     "static/js/2.51f0b788.chunk.js",
-    "static/css/main.bc0f58ee.chunk.css",
+    "static/css/main.6ade4735.chunk.css",
     "static/js/main.67dba70f.chunk.js"
   ]
 }
